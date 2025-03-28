@@ -29,8 +29,76 @@ model Token {
 }
 
 model Manga {
-  id    Int     @id @default(autoincrement())
-  url   String?
-  name  String  @unique
-  type  String
+  id          Int    @id @default(autoincrement())
+  title       String
+  author      String
+  description String
+
+  chapters Chapter[]
+  cover    Cover?    @relation("mangaCover")
 }
+
+model Cover {
+  id   Int    @id @default(autoincrement())
+  hash String
+
+  mangaId Int   @unique
+  manga   Manga @relation("mangaCover", fields: [mangaId], references: [id])
+}
+
+model Chapter {
+  id        Int    @id @default(autoincrement())
+  name      String
+  pageCount Int
+
+  pages Page[]
+
+  mangaId Int
+  manga   Manga @relation(fields: [mangaId], references: [id])
+}
+
+model Page {
+  id   Int    @id @default(autoincrement())
+  hash String
+
+  chapterId Int
+  chapter   Chapter @relation(fields: [chapterId], references: [id])
+}
+
+/*
+model Manga {
+  id    Int     @id @default(autoincrement())
+  title String?
+  author  String  
+  description  String
+  chapters Chapter[]
+  cover Cover?  @relation("mangaCover")
+}
+
+model Cover {
+  id Int @id @default(autoincrement())
+  hash String 
+  data Bytes
+  mangaId Int @unique
+  mimeType String
+  manga Manga @relation("mangaCover", fields: [mangaId], references: [id])
+}
+
+model Chapter {
+  id Int @id @default(autoincrement())
+  hash String 
+  pageCount Int
+  Page Page[]
+  mangaId Int @unique
+  manga Manga @relation(fields: [mangaId], references: [id])
+}
+
+model Page {
+  id Int @id @default(autoincrement())
+  hash String 
+  data Bytes
+  chapterId Int
+  mimeType String
+  chapter Chapter @relation(fields: [chapterId], references: [id])
+}
+*/
