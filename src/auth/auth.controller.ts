@@ -5,7 +5,6 @@ import { verify } from 'argon2';
 import { AuthGuard } from '@nestjs/passport';
 import { User } from '@prisma/client';
 import { logindto } from './dto/login.dto';
-import { profile } from 'console';
 
 @Controller('auth')
 export class AuthController {
@@ -25,7 +24,8 @@ export class AuthController {
     }
     return {
       token: await this.authService.generateTokenFor(user),
-      profilename: user.profilename
+      profilename: user.profilename,
+      userId : user.id,
     }
   }
   @Post('/regist')
@@ -33,8 +33,10 @@ export class AuthController {
    try {
      const generatedUser = await this.authService.registration(createUserDto);
      return {
-       token: await this.authService.generateTokenFor(generatedUser),
-        profilename: generatedUser.profilename
+        token: await this.authService.generateTokenFor(generatedUser),
+        profilename: generatedUser.profilename,
+        userId: generatedUser.id,
+
      }
    } catch (error) {
      console.log(error);

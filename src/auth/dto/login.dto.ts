@@ -1,4 +1,4 @@
-import {IsEmail, IsString, Length, Min, NotContains} from "class-validator";
+import { IsString, Length, NotContains} from "class-validator";
 
 export class logindto {
     @IsString()

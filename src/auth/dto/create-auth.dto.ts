@@ -1,4 +1,4 @@
-import {IsEmail, IsString, Length, Min, NotContains} from "class-validator";
+import {IsEmail, IsString, Length, NotContains} from "class-validator";
 
 export class CreateAuthDto {
     @IsString()
