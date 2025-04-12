@@ -1,0 +1,97 @@
+body {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.4em;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+}
+/*background: rgb(32, 31, 49);*/
+
+
+
+#container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('images/one_piece_wallpaper.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.inner-wrapper {
+  background: rgb(50, 50, 70);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: white;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.logo {
+  text-align: center;
+  display: flex;
+}
+
+.logo h1 {
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: auto;
+  width: 50%;
+}
+
+.search-bar {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+}
+
+.search-bar::placeholder {
+  color: #ccc;
+}
+
+.btn {
+  background-color: #30CFD0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #330867;
+}

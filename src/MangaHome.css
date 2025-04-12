@@ -1,0 +1,185 @@
+.navbar-brand{
+    font-weight: bold;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);    
+    background-clip: text;
+    color: transparent;
+    font-size: 25px;
+  }
+  
+  body{
+    background-color: #212529 ;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    color: white;
+  }
+  
+  /*navbar css */
+  .navbar{
+    border-radius: 20px;
+    margin-top: 15px;
+    box-shadow: 1px 1px 15px 1px #79beac;
+  }
+  
+  .nav-links{
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    list-style: none;
+    margin: 0 20px
+  }
+  
+  .nav-links li a {
+    position: relative;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 6px 0;
+    text-decoration:none;
+  }
+  
+  .nav-links li a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #34efdf;
+    transition: all 0.4s ease;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    
+  }
+  
+  .nav-links li a:hover:before{
+    width: 100%;
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  
+  .nav-links li a:hover{
+    color: #34efdf;
+  }
+  
+  #registrationButtons {
+    display:flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  /*navbar css 
+
+   
+  card */
+  
+  #page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px auto;
+    position: relative;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 80px;
+  }
+  
+  .card {
+    width: 180px;
+    height: 240px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #2a2a2a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer;
+    padding: 0;
+    margin: 20px;
+  }
+  
+  .card img.background {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+  
+  .card-content > .title {
+    transform: translateX(100%);
+    opacity: 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .card:hover .title {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 1px 1px 15px 1px #79beac;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-content {
+    padding: 15px;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+  }
+  
+  /* card */
+  
+  /* profile card */
+  .profilename {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px 0;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    text-align: center;
+  }
+  /* profile card */
+  
+  /* favorite icon */
+
+  .favorite-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .favorite-icon .filled-heart {
+    color: red;
+  }
+
+  .favorite-icon .empty-heart {
+    color: #ccc;
+  }
+
+  .favorite-icon:hover {
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+  }
+
+/* favorite icon */
