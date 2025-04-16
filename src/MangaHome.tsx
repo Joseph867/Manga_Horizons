@@ -137,9 +137,8 @@ const MangaHome: React.FC = () => {
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                   <ul className="nav-links">
-                    <li><a href="" onClick={() => navigate('/favorite')}>favorites</a></li>
-                    <li><a href="">Rólunk</a></li>
-                    <li><a href="" onClick={() => navigate('/continue')}>Folytatás</a></li>
+                    <li><a href="" onClick={() => navigate('/favorite')}>Favorites</a></li>
+                    <li><a href="" onClick={() => navigate('/continue')}>Continue your manga</a></li>
                   </ul>
                 </div>
               </div>

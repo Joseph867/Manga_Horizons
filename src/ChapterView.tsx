@@ -14,8 +14,16 @@ const ChapterView: React.FC = () => {
   const navigate = useNavigate();
   const [chapters, setChapter] = useState<Chapter[]>([]);
   const userId = localStorage.getItem('userId') || '';
+  const [searchQuery, setSearchQuery] = useState('');
+  
 
   const apiUrl = "http://localhost:3000";
+
+  useEffect(() => {
+      const params = new URLSearchParams(location.search);
+      const query = params.get('search') || ''
+      setSearchQuery(query)
+    } , [location.search])
 
   const handleChapterClick = async (chapterId: number, mangaId: number) => {
     if (userId) {
@@ -93,22 +101,25 @@ const ChapterView: React.FC = () => {
         <div className="container" id='contbar'>
           <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-fluid">
-              <a className="navbar-brand" href="#">MANGA HORIZONS</a>
+              <a className="navbar-brand" href="#" onClick={() => navigate('/MangaHome')}>MANGA HORIZONS</a>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                   <ul className="nav-links">
-                    <li><a href="">Manga könyvtár</a></li>
-                    <li><a href="">Kendvenc</a></li>
-                    <li><a href="">Rólunk</a></li>
-                    <li><a href="">Folytatás</a></li>
+                    <li><a href="" onClick={() => navigate('/favorite')}>Favorites</a></li>
+                    <li><a href="" onClick={() => navigate('/continue')}>Continue your manga</a></li>
                   </ul>
                 </div>
               </div>
-              <form className="d-flex" role='search'>
-                <input className='form-control me-2' type="search" placeholder='Search' aria-label='Search' />
+              <form className="d-flex" role='search' onSubmit={(e) => e.preventDefault()}>
+                <input
+                 className='form-control me-2'
+                  type="search" placeholder='Search' 
+                  aria-label='Search'
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)} />
               </form>
               <div id='registrationButtons'>
                 {showLogout == false ? <></> : <p className='profilename'>{localStorage.getItem('profilename')}</p>}

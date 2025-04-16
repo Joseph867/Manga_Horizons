@@ -8,15 +8,17 @@ import PageView from './PageView';
 import Favorite from './Favorite';
 import LoginRegist from './loginRegist';
 import Continues from './Continue';
+import { FaSearch } from 'react-icons/fa';
 
-
+ 
 const Home: React.FC = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = React.useState('');
   const [showLogin, setShowLogin] = React.useState(false);
   const [showRegister, setShowRegister] = React.useState(false);
 
-  const handleSearch = () => {
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
     navigate(`/MangaHome?search=${encodeURIComponent(searchQuery)}`);
   }
 
@@ -33,14 +35,20 @@ const Home: React.FC = () => {
         </div>
         <div className="content">
           <div className="left-section">
-            <input 
-            type='text' 
-            placeholder='Search Manga'
-            className='search-bar'
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <button className="btn" onClick={handleSearch}>Search</button>
+            <form className='search-form' onSubmit={handleSearch}>
+              <div className='search-bar-wrapper'>
+                <input 
+                type='text' 
+                placeholder='Search Manga'
+                className='search-bar'
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type='submit' className="search-button">
+                  <FaSearch />
+                </button>
+              </div>
+            </form>
             <button className="btn" onClick={() => navigate('/MangaHome')}>Manga Home</button>
           </div>
           <div className="right-section">
