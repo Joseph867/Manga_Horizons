@@ -12,7 +12,7 @@ export class PageService {
   }
 
   findAll() {
-    return `This action returns all page`;
+    return this.prisma.page.findMany();
   }
 
   async findByChapterId(chapterId: number) {

@@ -12,7 +12,12 @@ export class ChapterService {
   }
 
   findAll() {
-    return `This action returns all chapter`;
+    return this.prisma.chapter.findMany({
+      include: {
+        manga: true,
+        pages: true,
+      },
+    });
   }
 
   async findByMangaId(mangaId: number) {
